@@ -53,5 +53,43 @@ class DivisionSeeder extends Seeder
         	'gender_requirement' => DivisionGenderRequirement::womens(),
         	'skill_level' => DivisionSkillLevel::a(),
         ]);
+
+
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::mens(),
+        	'skill_level' => DivisionSkillLevel::open(),
+        ]);
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::mens(),
+        	'skill_level' => DivisionSkillLevel::aa(),
+        ]);
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::mens(),
+        	'skill_level' => DivisionSkillLevel::rec(),
+        ]);
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::womens(),
+        	'skill_level' => DivisionSkillLevel::open(),
+        ]);
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::womens(),
+        	'skill_level' => DivisionSkillLevel::bb(),
+        ]);
+        Division::create([
+        	'tournament_id' => '2',
+        	'team_size_requirement' => '4',
+        	'gender_requirement' => DivisionGenderRequirement::womens(),
+        	'skill_level' => DivisionSkillLevel::rec(),
+        ]);
     }
 }
