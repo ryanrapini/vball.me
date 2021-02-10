@@ -1893,6 +1893,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     tournament: Object
@@ -29020,7 +29021,9 @@ var render = function() {
     { staticClass: "mx-auto" },
     [
       _c("v-card-text", [
-        _c("div", [_vm._v("Word of the Day")]),
+        _c("div", [_vm._v(_vm._s(_vm.tournament))]),
+        _vm._v(" "),
+        _c("div"),
         _vm._v(" "),
         _c("p", { staticClass: "display-1 text--primary" }, [
           _vm._v("\n      " + _vm._s(_vm.tournament.name) + "\n    ")

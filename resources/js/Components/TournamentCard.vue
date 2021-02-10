@@ -3,7 +3,8 @@
     class="mx-auto"
   >
     <v-card-text>
-      <div>Word of the Day</div>
+      <div>{{ tournament }}</div>
+      <div></div>
       <p class="display-1 text--primary">
         {{ tournament.name }}
       </p>

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Tournament;
 use Carbon\Carbon;
+use App\Enums\TournamentCourtType;
+use App\Enums\TournamentSpecialTraits;
 
 class TournamentSeeder extends Seeder
 {
@@ -24,9 +26,9 @@ class TournamentSeeder extends Seeder
         	'start_time' => Carbon::now(),
         	'price' => '$20',
         	'price_type' => 'Per Person',
-        	'court_type_enum' => '1',
+        	'court_type' => TournamentCourtType::hardcourt(),
         	'format_enum' => '1',
-        	'special_traits_list' => '',
+        	'special_traits_list' => [TournamentSpecialTraits::shorties(),TournamentSpecialTraits::glow()],
         ]);
     }
 }

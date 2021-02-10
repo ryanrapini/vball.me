@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Enums;
+
+use Spatie\Enum\Laravel\Enum;
+
+
 /**
  * @method static self hardcourt()
  * @method static self sand()
@@ -9,14 +14,4 @@
  */
 class TournamentCourtType extends Enum
 {
-	protected static function values(): array
-	{
-		return [
-			'hardcourt' => 1,
-			'sand' => 2,
-			'grass' => 3,
-			'indoorsand' => 4,
-			'other' => 5,
-		];
-	}
 }
