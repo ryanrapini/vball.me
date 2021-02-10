@@ -26,8 +26,8 @@ class CreateTournamentsTable extends Migration
             $table->string('price')->nullable();
             $table->string('price_type')->nullable();
             $table->boolean('is_charity')->default(false);
-            $table->integer('court_type');
-            $table->integer('format_enum');
+            $table->string('court_type');
+            $table->string('format');
             $table->string('special_traits_list')->nullable();
         });
     }

@@ -1894,6 +1894,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     tournament: Object
@@ -29020,21 +29025,50 @@ var render = function() {
     "v-card",
     { staticClass: "mx-auto" },
     [
-      _c("v-card-text", [
-        _c("div", [_vm._v(_vm._s(_vm.tournament))]),
-        _vm._v(" "),
-        _c("div"),
-        _vm._v(" "),
-        _c("p", { staticClass: "display-1 text--primary" }, [
-          _vm._v("\n      " + _vm._s(_vm.tournament.name) + "\n    ")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("adjective")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text--primary" }, [
-          _vm._v("\n      " + _vm._s(_vm.tournament.description) + "\n    ")
-        ])
-      ]),
+      _c(
+        "v-card-text",
+        [
+          _c("p", { staticClass: "display-1 text--primary" }, [
+            _vm._v("\n      " + _vm._s(_vm.tournament.name) + "\n    ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text--primary" }, [
+            _vm._v("\n      " + _vm._s(_vm.tournament.description) + "\n    ")
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("ul", [
+              _c("li", [
+                _c("strong", [_vm._v("Start Date:")]),
+                _vm._v(" " + _vm._s(_vm.tournament.start_date))
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("strong", [_vm._v("Start Time:")]),
+                _vm._v(" " + _vm._s(_vm.tournament.start_time))
+              ]),
+              _vm._v(" "),
+              _vm.tournament.end_time !== null
+                ? _c("li", [
+                    _c("strong", [_vm._v("End Time:")]),
+                    _vm._v(_vm._s(_vm.tournament.end_time))
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.tournament.divisions, function(division) {
+            return _c("v-chip", [
+              _vm._v(
+                _vm._s(division.gender_requirement) +
+                  " " +
+                  _vm._s(division.skill_level)
+              )
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c(
         "v-card-actions",

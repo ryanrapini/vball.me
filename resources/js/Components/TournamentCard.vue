@@ -3,15 +3,20 @@
     class="mx-auto"
   >
     <v-card-text>
-      <div>{{ tournament }}</div>
-      <div></div>
       <p class="display-1 text--primary">
         {{ tournament.name }}
       </p>
-      <p>adjective</p>
       <div class="text--primary">
         {{ tournament.description }}
       </div>
+      <div>
+        <ul>
+            <li><strong>Start Date:</strong> {{ tournament.start_date }}</li>
+            <li><strong>Start Time:</strong> {{ tournament.start_time }}</li>
+            <li v-if="tournament.end_time !== null" ><strong>End Time:</strong>{{ tournament.end_time }}</li>
+        </ul>
+      </div>
+      <v-chip v-for="division in tournament.divisions">{{division.gender_requirement}} {{division.skill_level}}</v-chip>
     </v-card-text>
     <v-card-actions>
       <v-btn

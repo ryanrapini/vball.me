@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Enums;
+
+use Spatie\Enum\Laravel\Enum;
+
 /**
  * @method static self open()
  * @method static self aaa()
@@ -12,20 +16,6 @@
  * @method static self c()
  * @method static self rec()
  */
-class TournamentGenderRequirement extends Enum
+class DivisionSkillLevel extends Enum
 {
-	protected static function values(): array
-	{
-		return [
-			'open' => 1,
-			'aa' => 2,
-			'a' => 3,
-			'bb' => 4,
-			'upperb' => 5,
-			'b' => 6,
-			'lowerb' => 7,
-			'c' => 8,
-			'rec' => 9,
-		];
-	}
 }

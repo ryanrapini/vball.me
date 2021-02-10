@@ -18,8 +18,8 @@ class CreateDivisionsTable extends Migration
             $table->timestamps();
             $table->foreignId('tournament_id')->constrained('tournaments');
             $table->integer('team_size_requirement');
-            $table->integer('gender_requirement_enum');
-            $table->integer('skill_level_enum');
+            $table->integer('gender_requirement');
+            $table->integer('skill_level');
         });
     }
 

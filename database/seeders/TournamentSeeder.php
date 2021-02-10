@@ -7,6 +7,7 @@ use App\Models\Tournament;
 use Carbon\Carbon;
 use App\Enums\TournamentCourtType;
 use App\Enums\TournamentSpecialTraits;
+use App\Enums\TournamentFormat;
 
 class TournamentSeeder extends Seeder
 {
@@ -27,7 +28,7 @@ class TournamentSeeder extends Seeder
         	'price' => '$20',
         	'price_type' => 'Per Person',
         	'court_type' => TournamentCourtType::hardcourt(),
-        	'format_enum' => '1',
+        	'format' => TournamentFormat::standard(),
         	'special_traits_list' => [TournamentSpecialTraits::shorties(),TournamentSpecialTraits::glow()],
         ]);
     }

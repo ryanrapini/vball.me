@@ -13,7 +13,7 @@ class PageController extends Controller
     public function welcomePage(Request $request)
     {
     	return Inertia::render('Welcome', [
-	    	'tournaments' => Tournament::all(),
+	    	'tournaments' => Tournament::all()->load('divisions'),
 	        'canLogin' => Route::has('login'),
 	        'canRegister' => Route::has('register'),
 	        'laravelVersion' => Application::VERSION,
