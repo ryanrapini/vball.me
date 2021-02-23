@@ -1,96 +1,101 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+    <main-layout title="Login">
+        <v-row>
+            <v-col lg="4" offset-lg="4" md="6" offset-md="3">
+                <v-card class="mx-auto">
+                    <v-card-text>
+                        <p class="display-1 text--primary" align="center">
+                            Login
+                        </p>
+                        <v-text-field
+                            label="Email Address"
+                            v-model="loginForm.email"
+                        ></v-text-field>
+                        <v-text-field
+                            label="Password"
+                            v-model="loginForm.password"
+                            :append-icon="
+                                showPassword ? 'mdi-eye' : 'mdi-eye-off'
+                            "
+                            :type="showPassword ? 'text' : 'password'"
+                            name="login-input-password"
+                            counter
+                            @click:append="showPassword = !showPassword"
+                        ></v-text-field>
+                        <v-row class="mt-3 mr-3">
+                            <v-spacer />
+                            <v-btn right elevation="2" color="secondary">
+                                Login
+                                <v-icon right dark>
+                                    mdi-login
+                                </v-icon>
+                            </v-btn>
+                        </v-row>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-btn
+                            text
+                            color="teal accent-4"
+                            @click="isRegistering = true"
+                        >
+                            Register for an Account
+                        </v-btn>
+                    </v-card-actions>
 
-        <jet-validation-errors class="mb-4" />
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
-        <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                />
-            </div>
-
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <jet-checkbox name="remember" v-model="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <inertia-link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                >
-                    Forgot your password?
-                </inertia-link>
-
-                <jet-button
-                    class="ml-4"
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    Login
-                </jet-button>
-            </div>
-        </form>
-    </jet-authentication-card>
+                    <v-expand-transition>
+                        <v-card
+                            v-if="isRegistering"
+                            class="transition-fast-in-fast-out v-card--reveal"
+                            style="height: 100%;"
+                        >
+                            <v-card-text class="pb-0">
+                                <v-text-field
+                                    v-model="loginForm.password"
+                                    :append-icon="
+                                        showPassword ? 'mdi-eye' : 'mdi-eye-off'
+                                    "
+                                    :type="showPassword ? 'text' : 'password'"
+                                    name="input-10-1"
+                                    label="Password"
+                                    hint="At least 8 characters"
+                                    counter
+                                    @click:append="showPassword = !showPassword"
+                                ></v-text-field>
+                            </v-card-text>
+                            <v-card-actions class="pt-0">
+                                <v-btn
+                                    text
+                                    color="teal accent-4"
+                                    @click="isRegistering = false"
+                                >
+                                    Login
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </v-expand-transition>
+                </v-card>
+            </v-col>
+        </v-row>
+    </main-layout>
 </template>
 
 <script>
-import JetAuthenticationCard from "@/Jetstream/AuthenticationCard";
-import JetAuthenticationCardLogo from "@/Jetstream/AuthenticationCardLogo";
-import JetButton from "@/Jetstream/Button";
-import JetInput from "@/Jetstream/Input";
-import JetCheckbox from "@/Jetstream/Checkbox";
-import JetLabel from "@/Jetstream/Label";
-import JetValidationErrors from "@/Jetstream/ValidationErrors";
+import MainLayout from "@/Layouts/MainLayout";
 
 export default {
     components: {
-        JetAuthenticationCard,
-        JetAuthenticationCardLogo,
-        JetButton,
-        JetInput,
-        JetCheckbox,
-        JetLabel,
-        JetValidationErrors
+        MainLayout
     },
 
     props: {
-        canResetPassword: Boolean,
         status: String
     },
 
     data() {
         return {
-            form: this.$inertia.form({
+            isRegistering: false,
+            showPassword: false,
+            loginForm: this.$inertia.form({
                 email: "",
                 password: "",
                 remember: false
@@ -112,3 +117,12 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.v-card--reveal {
+    bottom: 0;
+    opacity: 1 !important;
+    position: absolute;
+    width: 100%;
+}
+</style>
