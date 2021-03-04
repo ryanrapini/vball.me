@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 
 *.sublime-workspace
+
+public/js/app.js
