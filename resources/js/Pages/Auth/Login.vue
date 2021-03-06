@@ -50,6 +50,11 @@
                         >
                             <v-card-text class="pb-0">
                                 <v-text-field
+                                    v-model="registerForm.firstname"
+                                    name="register-firstname-input"
+                                    >
+                                </v-text-field>
+                                <v-text-field
                                     v-model="loginForm.password"
                                     :append-icon="
                                         showPassword ? 'mdi-eye' : 'mdi-eye-off'
