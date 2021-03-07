@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <dashboard-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 API Tokens
@@ -15,19 +15,19 @@
                 />
             </div>
         </div>
-    </app-layout>
+    </dashboard-layout>
 </template>
 
 <script>
 import ApiTokenManager from "./ApiTokenManager";
-import AppLayout from "@/Layouts/AppLayout";
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 export default {
     props: ["tokens", "availablePermissions", "defaultPermissions"],
 
     components: {
         ApiTokenManager,
-        AppLayout
+        DashboardLayout
     }
 };
 </script>

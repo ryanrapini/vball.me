@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tournament;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TournamentController extends Controller
 {
@@ -14,8 +15,8 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Tournaments', [
-            'tournaments' => Tournament::all()->load('divisions');
+        return Inertia::render('Tournaments/Index', [
+            'tournaments' => Tournament::all()->load('divisions')
         ]);
     }
 
@@ -37,7 +38,13 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
-        
+        try {
+            Tournament::doCreate($request);
+        }
+        catch(\Exception $e){
+            return Inertia::render('Error');
+        }
+        return Inertia::render('ShowTournament');
     }
 
     /**

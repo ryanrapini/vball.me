@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <dashboard-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Create Team
@@ -11,16 +11,16 @@
                 <create-team-form />
             </div>
         </div>
-    </app-layout>
+    </dashboard-layout>
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout";
+import DashboardLayout from "@/Layouts/DashboardLayout";
 import CreateTeamForm from "./CreateTeamForm";
 
 export default {
     components: {
-        AppLayout,
+        DashboardLayout,
         CreateTeamForm
     }
 };

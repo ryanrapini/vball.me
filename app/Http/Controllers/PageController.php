@@ -18,4 +18,16 @@ class PageController extends Controller
 	        'canRegister' => Route::has('register'),
 	    ]);
     }
+
+    public function homePage(Request $request)
+    {
+    	return Inertia::render('Home/Index', [
+    	]);
+    }
+
+    public function resourcesPage(Request $request)
+    {
+    	return Inertia::render('Resources/Index', [
+    	]);
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facility;
+use App\Models\Tournament;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class FacilityController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Facilities/Index', [
+        return Inertia::render('News/Index', [
         ]);
     }
 
@@ -26,7 +26,7 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CreateTournament');
     }
 
     /**
@@ -37,27 +37,35 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            Tournament::doCreate($request);
+        }
+        catch(\Exception $e){
+            return Inertia::render('Error');
+        }
+        return Inertia::render('ShowTournament');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Facility  $facility
+     * @param  \App\Models\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function show(Facility $facility)
+    public function show(Tournament $tournament)
     {
-        //
+        return Inertia::render('ShowTournament', [
+            'tournament' => $tournament
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Facility  $facility
+     * @param  \App\Models\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function edit(Facility $facility)
+    public function edit(Tournament $tournament)
     {
         //
     }
@@ -66,10 +74,10 @@ class FacilityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Facility  $facility
+     * @param  \App\Models\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Facility $facility)
+    public function update(Request $request, Tournament $tournament)
     {
         //
     }
@@ -77,10 +85,10 @@ class FacilityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Facility  $facility
+     * @param  \App\Models\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Facility $facility)
+    public function destroy(Tournament $tournament)
     {
         //
     }

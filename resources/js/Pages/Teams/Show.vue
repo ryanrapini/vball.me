@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <dashboard-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Team Settings
@@ -29,12 +29,12 @@
                 </template>
             </div>
         </div>
-    </app-layout>
+    </dashboard-layout>
 </template>
 
 <script>
 import TeamMemberManager from "./TeamMemberManager";
-import AppLayout from "@/Layouts/AppLayout";
+import DashboardLayout from "@/Layouts/DashboardLayout";
 import DeleteTeamForm from "./DeleteTeamForm";
 import JetSectionBorder from "@/Jetstream/SectionBorder";
 import UpdateTeamNameForm from "./UpdateTeamNameForm";
@@ -43,7 +43,7 @@ export default {
     props: ["team", "availableRoles", "permissions"],
 
     components: {
-        AppLayout,
+        DashboardLayout,
         DeleteTeamForm,
         JetSectionBorder,
         TeamMemberManager,
