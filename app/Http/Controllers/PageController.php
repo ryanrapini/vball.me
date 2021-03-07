@@ -16,8 +16,6 @@ class PageController extends Controller
 	    	'tournaments' => Tournament::all()->load('divisions'),
 	        'canLogin' => Route::has('login'),
 	        'canRegister' => Route::has('register'),
-	        'laravelVersion' => Application::VERSION,
-	        'phpVersion' => PHP_VERSION,
 	    ]);
     }
 }

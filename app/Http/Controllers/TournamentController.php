@@ -14,7 +14,9 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Tournaments', [
+            'tournaments' => Tournament::all()->load('divisions');
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CreateTournament');
     }
 
     /**
@@ -35,7 +37,7 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +48,9 @@ class TournamentController extends Controller
      */
     public function show(Tournament $tournament)
     {
-        //
+        return Inertia::render('ShowTournament', [
+            'tournament' => $tournament
+        ]);
     }
 
     /**

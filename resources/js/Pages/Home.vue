@@ -112,7 +112,7 @@ export default {
         tournaments: Array
     },
     data: () => ({
-        links: ["Dashboard", "Messages", "Profile", "Updates"]
+        links: ["Home", "News", "Tournaments", "Leagues", "Venues", "Resources"]
     })
 };
 </script>

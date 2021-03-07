@@ -52,7 +52,7 @@
                                 <v-text-field
                                     v-model="registerForm.firstname"
                                     name="register-firstname-input"
-                                    >
+                                >
                                 </v-text-field>
                                 <v-text-field
                                     v-model="loginForm.password"

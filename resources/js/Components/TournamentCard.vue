@@ -4,9 +4,7 @@
             <p class="display-1 text--primary">
                 {{ tournament.name }}
             </p>
-            <div class="text--primary">
-                {{ tournament.description }}
-            </div>
+            <div class="text--primary">{{ tournament.description }} 2</div>
             <div>
                 <ul>
                     <li>
